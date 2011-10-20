@@ -135,7 +135,7 @@ There are a number of features I'd like to implement including:
  * Possibly port over to Backbone.js. There wouldn't be more work in this as it
    is already using underscore.js and there are Model classes already defined.
  * Use Assetic to complie and output the CoffeeScript files into JavaScript.
- * Add support for graphic of profiled information such as number of database requests
+ * Add support for graphing of profiled information such as number of database requests
 
 ## Changelog
 
