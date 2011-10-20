@@ -1,0 +1,49 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px; width: 100%; height: 100%; color: #000; font-size: 14px; background: #727272; }
+
+h2 { font-size: 20px; font-weight: bold; margin-bottom: 20px; }
+p { margin-bottom: 10px; }
+.clear { clear: both; }
+a { text-decoration: none; color: #fff; }
+
+#wrapper { padding: 5px; }
+
+#profile-controls { position: absolute; top: 5px; right: 5px; }
+.ui-button-text { font-size: 12px; }
+
+.searchable label { display: block; float: left; line-height: 37px; }
+.searchable .wrap { border: 1px solid #A3A3A3; border-radius: 5px; padding: 5px; margin-left: 57px; margin-bottom: 20px;  background: #666; }
+.searchable .wrap input { border: none; line-height: 20px; font-size: 14px; color: #fff; width: 100%; background: inherit; }
+
+.header-filters { float: left; width: 50%; margin-bottom: 20px; color: #fff;  }
+.header-filters .inner { padding: 0 5px; }
+.header-filters label { font-size: 16px;  }
+.header-filters .filler { margin-bottom: 20px; height: 36px; }
+.header-filters .button-set { display: inline-block; margin-right: 20px; }
+
+.profiles { clear: both; }
+.profile { margin-bottom: 10px; color: #fff; font-size: 22px; }
+.child-profile { margin-left: 50px; }
+.profile .request { float: left; width: 50%;  }
+.profile .response { float: left; width: 50%; }
+.profile .inner {  background: #444; }
+.profile .request .inner { padding: 20px; min-height: 25px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.profile .response .inner { padding: 10px; min-height: 45px; }
+.profile .request .inner { -webkit-border-top-left-radius: 20px; -webkit-border-bottom-left-radius: 20px; -moz-border-radius-topleft: 20px; -moz-border-radius-bottomleft: 20px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border: 2px solid #A3A3A3; border-right-width: 1px; }
+.profile .response .inner { -webkit-border-top-right-radius: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-topright: 20px; -moz-border-radius-bottomright: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border: 2px solid #A3A3A3; border-left-width: 1px; }
+.profile .right { float: right; margin: 5px 10px; font-size: 10px; }
+.profile .right .timer { background: url('/bundles/profilerlive/images/timer.png') no-repeat; }
+.profile .right .memory { background: url('/bundles/profilerlive/images/memory.png') no-repeat; }
+.profile .right .stat { display: block; line-height: 30px; padding-left: 25px;  }
+.profile .additional-stats { float: right; padding: 19px 0; margin-right: 15px; }
+.profile .additional-stats .stat { display: inline-block; block; line-height: 30px; padding-left: 30px; font-size: 16px; margin-left: 15px;  }
+.profile .additional-stats .doctrine { background: url('/bundles/profilerlive/images/db.png') no-repeat; }
+.profile .additional-stats .mail { background: url('/bundles/profilerlive/images/mail.png') no-repeat; }
+.profile .exception { background: url('/bundles/profilerlive/images/exception.png') no-repeat; padding-left: 25px; color: #DD4F4F; margin-left: 10px; }
+.profile .controller { font-size: 10px; display: block; margin-top: 13px; }
+
+.profile .status-2 .inner { border-color: #56AD00; }
+.profile .status-3 .inner { border-color: #E0E800; }
+.profile .status-4 .inner { border-color: #727272; }
+.profile .status-5 .inner { border-color: #DD4F4F; }

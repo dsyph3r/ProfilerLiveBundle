@@ -1,0 +1,7 @@
+ProfilerLiveBundle_homepage:
+    pattern:  /_live_profiler
+    defaults: { _controller: ProfilerLiveBundle:Profiler:index }
+    
+ProfilerLiveBundle_update:
+    pattern:  /_live_profiler/update.json/{token}
+    defaults: { _controller: ProfilerLiveBundle:Profiler:update, token: '' }

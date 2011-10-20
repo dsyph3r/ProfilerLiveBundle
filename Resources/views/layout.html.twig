@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{% block title 'Live Profiler' %}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/profilerlive/favicon.ico') }}" />
+        {% block head %}
+			<link href="{{ asset('bundles/profilerlive/css/ui-darkness/jquery-ui-1.8.16.custom.css') }}" rel="stylesheet" type="text/css" media="screen" />
+            <link href="{{ asset('bundles/profilerlive/css/profiler.css') }}" rel="stylesheet" type="text/css" media="screen" />
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/vendor/jquery-1.6.4.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/profilerlive/js/vendor/jquery-ui-1.8.16.custom.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/vendor/underscore_1_2_0_min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Mailer.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Database.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Exception.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Timer.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Memory.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Response.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Request.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/Profile.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/profilerlive/js/App.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body '' %}
+    </body>
+</html>

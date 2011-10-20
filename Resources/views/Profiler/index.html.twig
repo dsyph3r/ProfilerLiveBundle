@@ -1,0 +1,138 @@
+{% extends 'ProfilerLiveBundle::layout.html.twig' %}
+
+{% block body %}
+
+    <script type="text/javascript">
+		$(function() {
+            // Create the app, run it
+            var app = new App('{{ path('ProfilerLiveBundle_update') }}');
+            app.start();
+
+			$(".button-set").buttonset();
+
+            $("#profile-controls-reset").button().click(function() {
+                app.reset();
+            });
+
+            $('.header-filters input:checkbox').click(function() {
+                var filterType = $(this).data('filter');
+                if ($(this).is(':checked'))
+                    app.addFilter(filterType, $(this).val());
+                else
+                    app.removeFilter(filterType, $(this).val());
+
+                app.filter();
+            });
+
+            $('#request-url').keyup(function() {
+                app.addFilter('url', $(this).val());
+
+                app.filter();
+            });
+		});
+	</script>
+
+    <div id="wrapper">
+
+    	<span id="profile-controls">
+            <button id="profile-controls-reset">Reset</button>
+		</span>
+
+		<div class="request-headers header-filters">
+			<div class="inner">
+				<div class="searchable">
+					<label>URL</label>
+					<div class="wrap">
+						<input type="text" name="request-url" id="request-url" placeholder="eg. /hello/world" />
+					</div>
+				</div>
+
+				<div class="clear"></div>
+				<label>Method</label>
+				<div id="request-method" class="button-set">
+					<input type="checkbox" id="request-method-get" checked="checked" value="GET" data-filter="methods" /><label for="request-method-get">GET</label>
+					<input type="checkbox" id="request-method-post" checked="checked" value="POST" data-filter="methods" /><label for="request-method-post">POST</label>
+					<input type="checkbox" id="request-method-put" checked="checked" value="PUT" data-filter="methods" /><label for="request-method-put">PUT</label>
+					<input type="checkbox" id="request-method-delete" checked="checked" value="DELETE" data-filter="methods" /><label for="request-method-delete">DELETE</label>
+				</div>
+			</div>
+		</div>
+		<div class="response-headers header-filters">
+			<div class="inner">
+				<div class="filler"></div>
+				<div class="clear"></div>
+				<label>Status</label>
+				<div id="response-status-code" class="button-set">
+					<input type="checkbox" id="response-status-code-200" checked="checked" value="200" data-filter="status-codes" /><label for="response-status-code-200">200</label>
+                    <input type="checkbox" id="response-status-code-300" checked="checked" value="300" data-filter="status-codes" /><label for="response-status-code-300">300</label>
+					<input type="checkbox" id="response-status-code-400" checked="checked" value="400" data-filter="status-codes" /><label for="response-status-code-400">400</label>
+					<input type="checkbox" id="response-status-code-500" checked="checked" value="500" data-filter="status-codes" /><label for="response-status-code-500">500</label>
+				</div>
+
+				<label>Content</label>
+				<div id="response-content-type" class="button-set">
+					<input type="checkbox" id="response-content-type-html" checked="checked" value="text/html" data-filter="content-types" /><label for="response-content-type-html">HTML</label>
+					<input type="checkbox" id="response-content-type-json" checked="checked" value="application/json" data-filter="content-types" /><label for="response-content-type-json">JSON</label>
+					<input type="checkbox" id="response-content-type-xml" checked="checked" value="text/xml" data-filter="content-types" /><label for="response-content-type-xml">XML</label>
+				</div>
+			</div>
+		</div>
+
+        <div class="profiles">
+        </div>
+    </div>
+
+    <!-- Profile Template -->
+    <script type="text/template" id="profile-template">
+        <div class="profile <%= child ? 'child-profile' : '' %>">
+            <div class="request">
+                <div class="inner">
+                    <a href="<%= app.generateProfilerUrl(profile.getToken(), 'request') %>" target="_blank">
+                        <span class="method">[<%= profile.getRequest().getMethod() %>]</span>
+                        <span class="location" title="<%= profile.getRequest().getRequestUri() %>"><%= profile.getRequest().getRequestUri() %></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="response status-<%= profile.getResponse().getStatusCodeClass() %>">
+                <div class="right">
+                    <div class="stat timer"><%= profile.getTimer().getTime() %> ms</div>
+                    <div class="stat memory"><%= (profile.getMemory().getMemory() / 1024) %> KB</div>
+                </div>
+                <div class="additional-stats">
+
+                    <% if (profile.getDatabase() && profile.getDatabase().getQueryCount() > 0) { %>
+                        <a href="<%= app.generateProfilerUrl(profile.getToken(), 'db') %>" target="_blank">
+                            <div class="stat doctrine"><%= profile.getDatabase().getQueryCount() %> | <%= profile.getDatabase().getTime() %> ms</div>
+                        </a>
+                    <% } %>
+
+                    <% if (profile.getMailer() && profile.getMailer().getMessageCount() > 0) { %>
+                        <a href="<%= app.generateProfilerUrl(profile.getToken(), 'swiftmailer') %>" target="_blank">
+                            <div class="stat mail"><%= profile.getMailer().getMessageCount() %></div>
+                        </a>
+                    <% } %>
+
+                </div>
+                <div class="inner">
+                    <a href="<%= app.generateProfilerUrl(profile.getToken(), 'db') %>" target="_blank">
+                        <span class="status">[<%= profile.getResponse().getStatusCode() %>]</span>
+                        <span class="content-type"><%= profile.getResponse().getContentType() %></span>
+                    </a>
+
+                    <% if (profile.getException() && profile.getResponse().getStatusCodeClass() === '5') { %>
+                        <a href="<%= app.generateProfilerUrl(profile.getToken(), 'exception') %>" target="_blank">
+                            <span class="exception"><%= profile.getException().getClass() %></span>
+                        </a>
+                    <% } %>
+
+                    <a href="<%= app.generateProfilerUrl(profile.getToken(), 'request') %>" target="_blank">
+                        <span class="controller"><%= profile.getResponse().getController() %>|<%= profile.getResponse().getRoute() %></span>
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </script>
+
+{% endblock %}
