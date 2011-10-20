@@ -8,6 +8,8 @@ Important information is displayed with each profile including request URL,
 response status code, any exception details, doctrine information, memory usage
 and more.
 
+![profiler_live_bundle](https://github.com/dsyph3r/ProfilerLiveDemo/raw/master/src/Profiler/DemoBundle/Resources/public/images/screenshot.jpg)
+
 ## Features
 
  * See realtime requests/responses from your Symfony2 application including:
