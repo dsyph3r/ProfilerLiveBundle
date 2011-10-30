@@ -1,15 +1,7 @@
 parameters:
-    data_collector.request.class: Profiler\LiveBundle\Profiler\DataCollector\RequestDataCollector
-    data_collector.memory.class: Profiler\LiveBundle\Profiler\DataCollector\MemoryDataCollector
-    data_collector.timer.class: Profiler\LiveBundle\Profiler\DataCollector\TimerDataCollector
-    data_collector.exception.class: Profiler\LiveBundle\Profiler\DataCollector\ExceptionDataCollector
-    doctrine.data_collector.class: Profiler\LiveBundle\Profiler\DataCollector\DoctrineDataCollector
-    swiftmailer.data_collector.class: Profiler\LiveBundle\Profiler\DataCollector\MessageDataCollector
-    
-    profiler.storage.class: Profiler\LiveBundle\Profiler\Storage\SqliteProfilerStorage
-    
-services:
-    profiler.storage:
-        public: true
-        class: %profiler.storage.class%
-        arguments: [%profiler.storage.dsn%, %profiler.storage.username%, %profiler.storage.password%, %profiler.storage.lifetime%]
+    profiler_live.data_collector.request.class: Profiler\LiveBundle\Profiler\DataCollector\RequestDataCollector
+    profiler_live.data_collector.memory.class: Profiler\LiveBundle\Profiler\DataCollector\MemoryDataCollector
+    profiler_live.data_collector.timer.class: Profiler\LiveBundle\Profiler\DataCollector\TimerDataCollector
+    profiler_live.data_collector.exception.class: Profiler\LiveBundle\Profiler\DataCollector\ExceptionDataCollector
+    profiler_live.doctrine.data_collector.class: Profiler\LiveBundle\Profiler\DataCollector\DoctrineDataCollector
+    profiler_live.swiftmailer.data_collector.class: Profiler\LiveBundle\Profiler\DataCollector\MessageDataCollector
