@@ -9,8 +9,7 @@ class ExceptionDataCollector extends BaseExceptionDataCollector
     public function getLiveData()
     {
         $exception = array('exception' => array());
-        if (true === $this->hasException())
-        {
+        if (true === $this->hasException()) {
             $namespaceClass = $this->getException()->getClass();
             $class = (false === strrpos($namespaceClass, '\\')) ?
                 $namespaceClass : substr($namespaceClass, strrpos($namespaceClass, '\\')+1);

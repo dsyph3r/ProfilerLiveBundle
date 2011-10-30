@@ -34,8 +34,7 @@ class ProfilerController extends Controller
         $profiler = array();
         $profiler['last_token'] = $token;
         $profiler['profiles']   = array();
-        foreach ($profiles as $profile)
-        {
+        foreach ($profiles as $profile) {
             // Update the last token
             $profiler['last_token'] = $profile->getToken();
 
@@ -43,8 +42,7 @@ class ProfilerController extends Controller
             $profiler['profiles'][$profile->getToken()] = $liveProfile->getProfileData();
 
             // Each profile can have a number of child profiles
-            foreach ($profile->getChildren() as $child)
-            {
+            foreach ($profile->getChildren() as $child) {
                 $liveProfile = new LiveProfile($child);
                 $profiler['profiles'][$profile->getToken()]['children'][] = $liveProfile->getProfileData();
             }
