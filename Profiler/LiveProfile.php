@@ -32,13 +32,10 @@ class LiveProfile
     {
         $this->profile = $profile;
 
-        if (count($collectors))
-        {
+        if (count($collectors)) {
             // At the very least we need the request data
             $this->collectors = array_merge(array('request'), $collectors);
-        }
-        else
-        {
+        } else {
             // Set the default collectors. No need to get them all we dont need them
             $this->collectors = array(
                 'request', 'timer', 'memory', 'exception', 'swiftmailer', 'db',
@@ -57,10 +54,8 @@ class LiveProfile
         $data['children']    = array();
         $data['token']       = $this->profile->getToken();
 
-        foreach ($this->collectors as $collectorName)
-        {
-            if ($this->profile->hasCollector($collectorName))
-            {
+        foreach ($this->collectors as $collectorName) {
+            if ($this->profile->hasCollector($collectorName)) {
                 $data = array_merge($data, $this->profile->getCollector($collectorName)->getLiveData());
             }
         }

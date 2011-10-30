@@ -36,8 +36,7 @@ class SqliteProfilerStorage extends BaseSqliteProfilerStorage
         $this->close($db);
 
         $profiles = array();
-        foreach ($rawProfiles as $rawProfile)
-        {
+        foreach ($rawProfiles as $rawProfile) {
             $profiles[] = $this->createProfileFromData($rawProfile['token'], $rawProfile);
         }
         return $profiles;
