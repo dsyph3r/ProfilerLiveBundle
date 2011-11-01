@@ -116,7 +116,7 @@ CoffeeScript files and compile this to JavaScript using something like the
 following:
 
 ````bash
-$ coffee --watch -o Resources/public/js -c Resources/public/coffee
+$ coffee --watch -o Resources/public/js -c Resources/data/coffee
 ````
 
 ## Future features
