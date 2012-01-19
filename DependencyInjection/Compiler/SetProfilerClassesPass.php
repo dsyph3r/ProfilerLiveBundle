@@ -36,7 +36,7 @@ class SetProfilerClassesPass implements CompilerPassInterface
             'data_collector.memory',
             'data_collector.timer',
             'data_collector.exception',
-            'doctrine.data_collector',
+            'data_collector.doctrine',
             'swiftmailer.data_collector',
         );
 
