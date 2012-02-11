@@ -2,7 +2,7 @@
 
 namespace Profiler\LiveBundle\Profiler\DataCollector;
 
-use Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector as BaseMessageDataCollector;
+use Symfony\Bridge\Swiftmailer\DataCollector\MessageDataCollector as BaseMessageDataCollector;
 
 class MessageDataCollector extends BaseMessageDataCollector
 {
